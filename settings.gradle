@@ -1,2 +1,3 @@
 rootProject.name = 'spring_session_starter'
+include 'video'
 
