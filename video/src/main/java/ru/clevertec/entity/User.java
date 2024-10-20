@@ -21,8 +21,8 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "nickname", unique = true, nullable = false)
-    private String nickname;
+    @Column(name = "login", unique = true, nullable = false)
+    private String login;
 
     @Column(name = "name")
     private String name;
@@ -39,11 +39,11 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(id, user.id) && Objects.equals(nickname, user.nickname) && Objects.equals(name, user.name) && Objects.equals(email, user.email);
+        return Objects.equals(id, user.id) && Objects.equals(login, user.login) && Objects.equals(name, user.name) && Objects.equals(email, user.email);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, nickname, name, email);
+        return Objects.hash(id, login, name, email);
     }
 }

@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import ru.clevertec.enam.SubscriptionStatus;
 
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public record SubscriberResponse(String userNickname,
+public record SubscriberResponse(String userLogin,
                                  String channelTitle,
                                  SubscriptionStatus subscriptionStatus) {
 }

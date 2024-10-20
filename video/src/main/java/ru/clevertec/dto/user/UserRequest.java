@@ -8,7 +8,7 @@ import ru.clevertec.validation.annotation.UniqueUserFields;
 @UniqueUserFields
 public record UserRequest(@NotBlank
                           @Size(max = 50)
-                          String nickname,
+                          String login,
 
                           @NotBlank
                           @Size(max = 50)

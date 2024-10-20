@@ -22,7 +22,7 @@ public class UserValidator implements ConstraintValidator<UniqueUserFields, User
             return true;
         }
 
-        boolean nicknameExists = userRepository.findByNickname(request.nickname()).isPresent();
+        boolean nicknameExists = userRepository.findByLogin(request.login()).isPresent();
         boolean emailExists = userRepository.findByEmail(request.email()).isPresent();
 
         if (nicknameExists || emailExists) {

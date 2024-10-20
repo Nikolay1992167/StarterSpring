@@ -1,7 +1,7 @@
 package ru.clevertec.dto.user;
 
 public record UserResponse(Long id,
-                           String nickname,
+                           String login,
                            String name,
                            String email) {
 }

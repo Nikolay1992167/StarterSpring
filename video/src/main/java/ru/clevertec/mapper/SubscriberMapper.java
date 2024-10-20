@@ -13,7 +13,7 @@ public interface SubscriberMapper {
 
     Subscriber toSubscription(User user, Channel channel);
 
-    @Mapping(target = "userNickname", source = "subscriber.user.nickname")
+    @Mapping(target = "userLogin", source = "subscriber.user.login")
     @Mapping(target = "channelTitle", source = "subscriber.channel.title")
     SubscriberResponse toResponse(Subscriber subscriber, SubscriptionStatus subscriptionStatus);
 }

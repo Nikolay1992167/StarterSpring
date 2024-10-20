@@ -1,6 +1,6 @@
 --liquibase formatted sql
 --changeset Minich_Nikolay:4
-INSERT INTO users (nickname, name, email)
+INSERT INTO users (login, name, email)
 VALUES ('alice', 'Alice Smith', 'alice@gmail.com'),
        ('bob', 'Bob Jones', 'bob@yahoo.com'),
        ('charlie', 'Charlie Brown', 'charlie@hotmail.com'),
