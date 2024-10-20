@@ -1,10 +1,16 @@
 package ru.clevertec.model;
 
-import jakarta.persistence.*;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.Accessors;
-import ru.clevertec.listener.SessionListener;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
@@ -14,19 +20,15 @@ import java.util.Objects;
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(chain = true)
-@Entity
-@Table(name = "sessions")
-@EntityListeners(SessionListener.class)
+@Document(collection = "sessions")
 public class Session {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private BigInteger id;
 
-    @Column(name = "login")
     private String login;
 
-    @Column(name = "opening_time")
+    @CreatedDate
     private LocalDateTime openingTime;
 
     @Override
@@ -41,5 +43,4 @@ public class Session {
     public int hashCode() {
         return Objects.hash(id);
     }
-
 }

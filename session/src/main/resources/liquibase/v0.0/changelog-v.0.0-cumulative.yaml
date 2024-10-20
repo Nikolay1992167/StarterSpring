@@ -1,9 +1,0 @@
-databaseChangeLog:
-  - include:
-      file: liquibase/v0.0/ddl/2024-10-15--01-create-sessions-table.sql
-  - include:
-      file: liquibase/v0.0/ddl/2024-10-15--02-create-black_list-table.sql
-  - include:
-      file: liquibase/v0.0/dml/2024-10-15--01-insert-sessions-table.sql
-  - include:
-      file: liquibase/v0.0/dml/2024-10-15--02-insert-black_list-table.sql
