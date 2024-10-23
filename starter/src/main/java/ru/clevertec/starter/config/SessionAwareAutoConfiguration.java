@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Role;
 import org.springframework.http.MediaType;
 import org.springframework.web.client.RestClient;
 import ru.clevertec.starter.bpp.SessionAwareBeanPostProcessor;
+import ru.clevertec.starter.exception.handler.SessionServiceResponseErrorHandler;
 import ru.clevertec.starter.property.SessionAwareProperties;
 import ru.clevertec.starter.sevice.SessionAwareService;
 import ru.clevertec.starter.sevice.handler.BlackListHandler;
@@ -26,7 +27,7 @@ import java.util.List;
 @EnableConfigurationProperties(SessionAwareProperties.class)
 @ConditionalOnClass(SessionAwareProperties.class)
 @ConditionalOnProperty(prefix = "session.aware", name = "enabled", havingValue = "true")
-public class AwareAutoConfiguration {
+public class SessionAwareAutoConfiguration {
 
     @Bean
     public SessionAwareBeanPostProcessor sessionAwareBeanPostProcessor() {
@@ -35,13 +36,18 @@ public class AwareAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean(SessionAwareService.class)
-    public SessionAwareService sessionAwareService(RestClient restClient) {
-        return new SessionAwareService(restClient);
+    public SessionAwareService sessionAwareService(RestClient restClient, SessionServiceResponseErrorHandler errorHandler) {
+        return new SessionAwareService(restClient, errorHandler);
     }
 
     @Bean
     public BlackListHandler propertyBlackListHandler(SessionAwareProperties properties) {
         return new PropertyBlackListHandler(properties);
+    }
+
+    @Bean
+    public SessionServiceResponseErrorHandler sessionServiceResponseErrorHandler() {
+        return new SessionServiceResponseErrorHandler();
     }
 
     @Bean

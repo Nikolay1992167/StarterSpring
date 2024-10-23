@@ -16,8 +16,12 @@ spring:
   liquibase:
     enabled: true
     change-log: liquibase/db.changelog-master.yaml
-  data:
-    web:
-      pageable:
-        default-page-size: 10
-        max-page-size: 20
+session:
+  aware:
+    enabled: true
+    url: http://localhost:8081/sessions
+    black-list:
+      - eva
+      - oksana
+    black-list-handlers:
+      - ru.clevertec.config.PersonBlackListHandler

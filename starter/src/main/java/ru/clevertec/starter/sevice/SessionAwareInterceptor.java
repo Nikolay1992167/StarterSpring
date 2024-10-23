@@ -98,12 +98,12 @@ public class SessionAwareInterceptor implements MethodInterceptor {
 
     private String invokeGetter(Object arg) {
         return Arrays.stream(arg.getClass().getMethods())
-                .filter(method -> "getLogin".equals(method.getName()))
+                .filter(method -> "login".equals(method.getName()))
                 .map(method -> {
                     try {
                         return method.invoke(arg);
                     } catch (IllegalAccessException | InvocationTargetException e) {
-                        throw new SessionAwareException("The object must be a class or a record and have a Login implementation");
+                        throw new SessionAwareException("The object must be a class or a record");
                     }
                 })
                 .map(Object::toString)

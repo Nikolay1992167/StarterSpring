@@ -1,7 +1,6 @@
 package ru.clevertec.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -20,8 +19,8 @@ public class SessionController {
     private final SessionService sessionService;
 
     @PostMapping
-    public ResponseEntity<SessionResponse> findByLoginOrSaveAndReturn(@RequestBody SessionRequest request) {
-        return ResponseEntity.status(HttpStatus.OK).body(sessionService.findByLoginOrSaveAndReturn(request));
+    public SessionResponse findByLoginOrSaveAndReturn(@RequestBody SessionRequest request) {
+        return sessionService.findByLoginOrSaveAndReturn(request);
     }
 
     @DeleteMapping
