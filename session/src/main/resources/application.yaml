@@ -1,0 +1,12 @@
+spring:
+  data:
+    mongodb:
+      username: admin
+      password: admin
+      uri: mongodb://localhost:27017/session
+server:
+  port: 8081
+session:
+  clean:
+    enabled: true
+  time: "00 00 00 * * *"

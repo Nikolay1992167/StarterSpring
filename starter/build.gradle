@@ -1,0 +1,25 @@
+plugins {
+    id 'java-library'
+    id "io.freefair.lombok" version "8.4"
+    id 'maven-publish'
+}
+
+group = 'ru.clevertec'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web:3.2.4'
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+}
